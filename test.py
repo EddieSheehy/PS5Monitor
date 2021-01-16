@@ -65,6 +65,7 @@ async def go(ctx):
             embed.set_footer(text='Watson',icon_url='https://cdn.discordapp.com/app-icons/711256658592137237/74a1779046799c1665d03cda5bb9694f.png'),
             embed.set_thumbnail(url=imgURL)
             await ctx.send(embed=embed)
+            client.message.send("hello")
             time.sleep(30)
             winner = 0
 
