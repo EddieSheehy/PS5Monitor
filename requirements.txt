@@ -1,5 +1,5 @@
 requests
-bs
+beautifulsoup4
 time
 discord
 discord.ext
