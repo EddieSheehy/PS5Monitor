@@ -31,7 +31,7 @@ async def go(ctx):
         content = requests.get(urlSmyths)
         soup = bs.BeautifulSoup(content.text, 'lxml')
         stockSmyths = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
-        if stockGS == 'Out Of Stock':
+        if stockGS == 'Out Of Sdtock':
             print('GS Out Of Stock\n')
 
         else:
@@ -44,13 +44,14 @@ async def go(ctx):
             )
             embed.add_field(name='Type', value='Restock', inline=True)
             embed.add_field(name='Site', value='Gamestop IE', inline=True)
+            embed.add_field(name='Role', value='<@&800002604381503518>', inline=False)
             embed.set_footer(text='Watson',icon_url='https://cdn.discordapp.com/app-icons/711256658592137237/74a1779046799c1665d03cda5bb9694f.png'),
             embed.set_thumbnail(url=imgURL)
             await ctx.send(embed=embed)
             time.sleep(30)
             winner = 0
 
-        if stockSmyths[53:66] == 'js-enable-btn':
+        if stockSmyths[53:66] != 'js-enable-btn':
             winner = 1
             embed = discord.Embed(
                 title = 'PS5 IN STOCK',
@@ -60,6 +61,7 @@ async def go(ctx):
             )
             embed.add_field(name='Type', value='Restock', inline=True)
             embed.add_field(name='Site', value='Smyths IE', inline=True)
+            embed.add_field(name='Role', value=<@&800002604381503518>, inline=False)
             embed.set_footer(text='Watson',icon_url='https://cdn.discordapp.com/app-icons/711256658592137237/74a1779046799c1665d03cda5bb9694f.png'),
             embed.set_thumbnail(url=imgURL)
             await ctx.send(embed=embed)
