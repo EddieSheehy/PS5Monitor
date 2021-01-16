@@ -1,6 +1,2 @@
 requests
 beautifulsoup4
-time
-discord
-discord.ext
-datetime
