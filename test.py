@@ -61,7 +61,7 @@ async def go(ctx):
             )
             embed.add_field(name='Type', value='Restock', inline=True)
             embed.add_field(name='Site', value='Smyths IE', inline=True)
-            embed.add_field(name='Role', value=<@&800002604381503518>, inline=False)
+            embed.add_field(name='Role', value='<@&800002604381503518>', inline=False)
             embed.set_footer(text='Watson',icon_url='https://cdn.discordapp.com/app-icons/711256658592137237/74a1779046799c1665d03cda5bb9694f.png'),
             embed.set_thumbnail(url=imgURL)
             await ctx.send(embed=embed)
