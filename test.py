@@ -31,7 +31,7 @@ async def go(ctx):
         content = requests.get(urlSmyths)
         soup = bs.BeautifulSoup(content.text, 'lxml')
         stockSmyths = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
-        if stockGS == 'Out Of Sdtock':
+        if stockGS == 'Out Of Stock':
             print('GS Out Of Stock\n')
 
         else:
@@ -50,7 +50,7 @@ async def go(ctx):
             time.sleep(30)
             winner = 0
 
-        if stockSmyths[53:66] != 'js-enable-btn':
+        if stockSmyths[53:66] == 'js-enable-btn':
             winner = 1
             embed = discord.Embed(
                 title = 'PS5 IN STOCK',
