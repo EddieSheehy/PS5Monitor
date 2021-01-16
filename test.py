@@ -44,10 +44,10 @@ async def go(ctx):
             )
             embed.add_field(name='Type', value='Restock', inline=True)
             embed.add_field(name='Site', value='Gamestop IE', inline=True)
-            embed.add_field(name='Role', value='<@&800002604381503518>', inline=False)
             embed.set_footer(text='Watson',icon_url='https://cdn.discordapp.com/app-icons/711256658592137237/74a1779046799c1665d03cda5bb9694f.png'),
             embed.set_thumbnail(url=imgURL)
             await ctx.send(embed=embed)
+            await ctx.channel.send('<@&800002604381503518>')
             time.sleep(30)
             winner = 0
 
@@ -61,11 +61,10 @@ async def go(ctx):
             )
             embed.add_field(name='Type', value='Restock', inline=True)
             embed.add_field(name='Site', value='Smyths IE', inline=True)
-            embed.add_field(name='Role', value='<@&800002604381503518>', inline=False)
             embed.set_footer(text='Watson',icon_url='https://cdn.discordapp.com/app-icons/711256658592137237/74a1779046799c1665d03cda5bb9694f.png'),
             embed.set_thumbnail(url=imgURL)
             await ctx.send(embed=embed)
-            await message.send("hello")
+            await ctx.channel.send('<@&800002604381503518>')
             time.sleep(30)
             winner = 0
 
