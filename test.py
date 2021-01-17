@@ -5,6 +5,7 @@ import discord
 from discord.ext import commands
 import datetime
 
+client = commands.Bot(command_prefix =  '!')
 TOKEN = "NzExMjU2NjU4NTkyMTM3MjM3.XsAXYQ.RsuGF9pIAtU3dguVz7-EclQRy34"
 
 @client.event
