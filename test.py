@@ -12,10 +12,8 @@ client = commands.Bot(command_prefix =  '!')
 async def on_ready():
     print("Bot Ready")
 
-imgURL = 'https://i.guim.co.uk/img/media/f58aa676496e9eaba611000477f28d0232fd91eb/0_165_3378_2027/master/3378.jpg?width=620&quality=45&auto=format&fit=max&dpr=2&s=e8c5338394932059caf20ba2516be828'
+    imgURL = 'https://i.guim.co.uk/img/media/f58aa676496e9eaba611000477f28d0232fd91eb/0_165_3378_2027/master/3378.jpg?width=620&quality=45&auto=format&fit=max&dpr=2&s=e8c5338394932059caf20ba2516be828'
 
-@client.command(pass_context=True)
-async def go(ctx):
     winner  = 0
 
     while 1:
