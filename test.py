@@ -6,7 +6,6 @@ from discord.ext import commands
 import datetime
 
 TOKEN = "NzExMjU2NjU4NTkyMTM3MjM3.XsAXYQ.RsuGF9pIAtU3dguVz7-EclQRy34"
-client = commands.Bot(command_prefix =  '!')
 
 @client.event
 async def on_ready():
