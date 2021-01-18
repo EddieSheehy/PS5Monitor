@@ -7,12 +7,12 @@ from discord_webhook import *
 TOKEN = "NzExMjU2NjU4NTkyMTM3MjM3.XsAXYQ.RsuGF9pIAtU3dguVz7-EclQRy34"
 
 client = discord.Client()
-webhookurl = 'https://discordapp.com/api/webhooks/711261540984160307/keJl7iaHR9TmSXzNxN_U0ghqDHaz-XnUxZrIYmcnGhP-JQmpSYKI8q34gHJ5ZGwdopiY'
+webhookurl = 'https://discord.com/api/webhooks/800840213135228948/DpuqgulYFHYHuQhgy7g-NVj78E6H9kE6dgvQHdzHmX5EWzWVh45ck0AJT5RIupjYgeIr'
 imgURL = 'https://i.guim.co.uk/img/media/f58aa676496e9eaba611000477f28d0232fd91eb/0_165_3378_2027/master/3378.jpg?width=620&quality=45&auto=format&fit=max&dpr=2&s=e8c5338394932059caf20ba2516be828'
 
 #Webhook Structure for Smyths IE
 def webhookresponsesmyths():
-             webhook = DiscordWebhook(url=webhookurl, username="Smyths IE")
+             webhook = DiscordWebhook(url=webhookurl, username="Smyths IE", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
              embed = DiscordEmbed(title='PS5 In Stock', url='https://www.smythstoys.com/ie/en-ie/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-console/p/191259', color=15105570)
              embed.add_embed_field(name='Type', value='Restock', inline=True)
              embed.add_embed_field(name='Site', value='Smyths IE', inline=True)
@@ -24,7 +24,7 @@ def webhookresponsesmyths():
 
 #Webhook Structure for GameStop IE
 def webhookresponsegamestop():
-             webhook = DiscordWebhook(url=webhookurl, username="Gamestop IE")
+             webhook = DiscordWebhook(url=webhookurl, username="Gamestop IE", avatar_url='https://jobapplications.net/wp-content/uploads/gamestop-logo-icon.png')
              embed = DiscordEmbed(title='PS5 In Stock', url='https://www.gamestop.ie/PlayStation%205/Games/72504/playstation-5-console', color=7419530)
              embed.add_embed_field(name='Type', value='Restock', inline=True)
              embed.add_embed_field(name='Site', value='Gamestop IE', inline=True)
