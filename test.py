@@ -7,7 +7,7 @@ import datetime
 
 TOKEN = "NzExMjU2NjU4NTkyMTM3MjM3.XsAXYQ.RsuGF9pIAtU3dguVz7-EclQRy34"
 client = commands.Bot(command_prefix =  '!')
-
+channel = bot.get_channel(639276792020205598)
 @client.event
 async def on_ready():
     print("Bot Ready")
@@ -29,7 +29,7 @@ async def on_ready():
         content = requests.get(urlSmyths)
         soup = bs.BeautifulSoup(content.text, 'lxml')
         stockSmyths = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
-        if stockGS == 'Out Of Stock':
+        if stockGS == 'Out Of Sdtock':
             print('GS Out Of Stock\n')
 
         else:
