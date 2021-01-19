@@ -46,12 +46,14 @@ async def on_ready():
         content = requests.get(urlGS)
         soup = bs.BeautifulSoup(content.text, 'lxml')
         stockGS = soup.find("div", {"class": "bigBuyButtons SPNOpenMap"}).find('a').text
+        pass
 
         #Smyths
         urlSmyths = 'https://www.smythstoys.com/ie/en-ie/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-console/p/191259'
         content = requests.get(urlSmyths)
         soup = bs.BeautifulSoup(content.text, 'lxml')
         stockSmyths = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
+        pass
         if stockGS == 'Out Of Stock':
             print('Gamestop Digital Out Of Stock\n')
 
