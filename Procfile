@@ -1,2 +1,2 @@
-worker: python PS5Digital.py
-worker: python PS5Disk.py
+worker1: python PS5Digital.py
+worker2: python PS5Disk.py
