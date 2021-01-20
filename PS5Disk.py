@@ -42,18 +42,18 @@ async def on_ready():
     while 1:
         
         #GameStop
-        urlGS = 'https://www.gamestop.ie/PlayStation%205/Games/74863/playstation-5-digital-edition-console'
+        urlGS = 'https://www.gamestop.ie/PlayStation%205/Games/72504/playstation-5-console'
         content = requests.get(urlGS)
         if not content is None:
-          soup = bs.BeautifulSoup(content.text, 'lxml')
-          stockGS = soup.find("div", {"class": "bigBuyButtons SPNOpenMap"}).find('a').text
+            soup = bs.BeautifulSoup(content.text, 'lxml')
+            stockGS = soup.find("div", {"class": "bigBuyButtons SPNOpenMap"}).find('a').text
 
         #Smyths
         urlSmyths = 'https://www.smythstoys.com/ie/en-ie/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-console/p/191259'
         content = requests.get(urlSmyths)
         if not content is None:
-          soup = bs.BeautifulSoup(content.text, 'lxml')
-          stockSmyths = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
+            soup = bs.BeautifulSoup(content.text, 'lxml')
+            stockSmyths = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
           
         if stockGS == 'Out Of Stock':
             print('Gamestop Disk Out Of Stock\n')
