@@ -7,6 +7,7 @@ from discord_webhook import *
 TOKEN = "NzExMjU2NjU4NTkyMTM3MjM3.XsAXYQ.RsuGF9pIAtU3dguVz7-EclQRy34"
 
 client = discord.Client()
+headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 webhookurl = 'https://discord.com/api/webhooks/800840213135228948/DpuqgulYFHYHuQhgy7g-NVj78E6H9kE6dgvQHdzHmX5EWzWVh45ck0AJT5RIupjYgeIr'
 imgURL = 'https://static-ie.gamestop.ie/images/products/275145/3max.jpg'
 
@@ -43,7 +44,7 @@ async def on_ready():
         
         #GameStop
         urlGS = 'https://www.gamestop.ie/PlayStation%205/Games/74863/playstation-5-digital-edition-console'
-        content = requests.get(urlGS)
+        content = requests.get(urlGS, headers=headers)
         if not content is None:
             soup = bs.BeautifulSoup(content.text, 'lxml')
             stockGS = soup.find("div", {"class": "bigBuyButtons SPNOpenMap"}).find('a').text
@@ -51,7 +52,7 @@ async def on_ready():
 
         #Smyths
         urlSmyths = 'https://www.smythstoys.com/ie/en-ie/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-digital-edition-console/p/191430'
-        content = requests.get(urlSmyths)
+        content = requests.get(urlSmyths, headers=headers)
         if not content is None:
             soup = bs.BeautifulSoup(content.text, 'lxml')
             stockSmyths = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
