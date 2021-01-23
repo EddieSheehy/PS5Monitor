@@ -234,7 +234,7 @@ def PS5DiskSmythsLoopUK():
 
 @client.event
 async def on_ready():
-
+    await client.change_presence(status=discord.Status.online, activity=discord.Status('Capitalism Is King'))
     thread1 = Thread(target=PS5DiskGSLoop)
     thread2 = Thread(target=PS5DiskSmythsLoop)
     thread3 = Thread(target=PS5DigGSLoop)
