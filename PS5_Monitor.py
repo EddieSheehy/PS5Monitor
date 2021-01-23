@@ -11,6 +11,7 @@ client = discord.Client()
 webhookurl = 'https://discord.com/api/webhooks/800840213135228948/DpuqgulYFHYHuQhgy7g-NVj78E6H9kE6dgvQHdzHmX5EWzWVh45ck0AJT5RIupjYgeIr'
 imgURLDisk = 'https://static-ie.gamestop.ie/images/products/271916/3max.jpg'
 imgURLDig = 'https://static-ie.gamestop.ie/images/products/275145/3max.jpg'
+delay = 6
 
 #Webhook Structure for Smyths IE
 def webhookresponsesmythsDisk():
@@ -109,7 +110,7 @@ def PS5DiskGSLoop():
 
         if winnerGSDisk == 1:
             break
-        time.sleep(3)
+        time.sleep(delay)
 
 def PS5DiskSmythsLoop():
     while 1:
@@ -133,7 +134,7 @@ def PS5DiskSmythsLoop():
         
         if winnerSmythsDisk == 1:
             break
-        time.sleep(3)
+        time.sleep(delay)
 
 def PS5DigGSLoop():
     while 1:
@@ -157,7 +158,7 @@ def PS5DigGSLoop():
 
         if winnerGSDig == 1:
             break
-        time.sleep(3)
+        time.sleep(delay)
 
 def PS5DigSmythsLoop():
     while 1:
@@ -181,7 +182,7 @@ def PS5DigSmythsLoop():
         
         if winnerSmythsDig == 1:
             break
-        time.sleep(3)
+        time.sleep(delay)
 
 def PS5DigSmythsLoopUK():
     while 1:
@@ -205,7 +206,7 @@ def PS5DigSmythsLoopUK():
         
         if winnerSmythsDig == 1:
             break
-        time.sleep(3)
+        time.sleep(delay)
 
 def PS5DiskSmythsLoopUK():
     while 1:
@@ -229,7 +230,7 @@ def PS5DiskSmythsLoopUK():
         
         if winnerSmythsDisk == 1:
             break
-        time.sleep(3)
+        time.sleep(delay)
 
 @client.event
 async def on_ready():
