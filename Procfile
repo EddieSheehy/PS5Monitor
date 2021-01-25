@@ -1,1 +1,1 @@
-worker1: python PS5_Monitor.py
+worker1: python src/PS5_Monitor.py
