@@ -8,7 +8,7 @@ from threading import Thread
 TOKEN = "NzExMjU2NjU4NTkyMTM3MjM3.XsAXYQ.RsuGF9pIAtU3dguVz7-EclQRy34"
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 client = discord.Client()
-webhookurl = 'https://discord.com/api/webhooks/800840213135228948/DpuqgulYFHYHuQhgy7g-NVj78E6H9kE6dgvQHdzHmX5EWzWVh45ck0AJT5RIupjYgeIr'
+webhookurl = 'https://discord.com/api/webhooks/725833804899418143/ahah5olFVarkj3b0hPQK8MTf95qKc5p6EWXdQDelhYJ-oJuZFK584MITLM15TYbkxH-T'
 imgURLDisk = 'https://static-ie.gamestop.ie/images/products/271916/3max.jpg'
 imgURLDig = 'https://static-ie.gamestop.ie/images/products/275145/3max.jpg'
 delay = 6
@@ -64,7 +64,7 @@ def webhookresponsegamestopDigital():
 #Webhook Structure for Smyths UK
 def webhookresponsesmythsDigitalUK():
              webhook = DiscordWebhook(url=webhookurl, username="Smyths UK", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
-             embed = DiscordEmbed(title='PS5 Digital In Stock', url='https://www.smythstoys.com/ie/en-ie/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-digital-edition-console/p/191430', color=15105570)
+             embed = DiscordEmbed(title='PS5 Digital In Stock', url='https://www.smythstoys.com/uk/en-gb/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-digital-edition-console/p/191430', color=15105570)
              embed.add_embed_field(name='Type', value='Restock', inline=True)
              embed.add_embed_field(name='Site', value='Smyths UK', inline=True)
              embed.set_footer(text='Watson',icon_url='https://cdn.discordapp.com/app-icons/711256658592137237/74a1779046799c1665d03cda5bb9694f.png')
@@ -76,7 +76,7 @@ def webhookresponsesmythsDigitalUK():
 #Webhook Structure for Smyths UK
 def webhookresponsesmythsDiskUK():
              webhook = DiscordWebhook(url=webhookurl, username="Smyths UK", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
-             embed = DiscordEmbed(title='PS5 Disk In Stock', url='https://www.smythstoys.com/ie/en-ie/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-digital-edition-console/p/191430', color=15105570)
+             embed = DiscordEmbed(title='PS5 Disk In Stock', url='https://www.smythstoys.com/uk/en-gb/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-console/p/191259', color=15105570)
              embed.add_embed_field(name='Type', value='Restock', inline=True)
              embed.add_embed_field(name='Site', value='Smyths UK', inline=True)
              embed.set_footer(text='Watson',icon_url='https://cdn.discordapp.com/app-icons/711256658592137237/74a1779046799c1665d03cda5bb9694f.png')
@@ -96,8 +96,14 @@ def PS5DiskGSLoop():
         url = 'https://www.gamestop.ie/PlayStation%205/Games/72504/playstation-5-console'
         content = requests.get(url,headers=headers)
         if not content is None:
-            soup = bs.BeautifulSoup(content.text, 'lxml')
-            stockGSDisk = soup.find("div", {"class": "bigBuyButtons SPNOpenMap"}).find('a').text
+            try:
+                soup = bs.BeautifulSoup(content.text, 'lxml')
+                stockGSDisk = soup.find("div", {"class": "bigBuyButtons SPNOpenMap"}).find('a').text
+            except:
+                webhook = DiscordWebhook(url=webhookurl, username="Gamestop IE", avatar_url='https://jobapplications.net/wp-content/uploads/gamestop-logo-icon.png')
+                embed = DiscordEmbed(title='PS5 Disk In Stock', url='https://www.gamestop.ie/PlayStation%205/Games/72504/playstation-5-console',description='Error Recieved, possible stock', color=7419530)
+                webhook.add_embed(embed)
+                response = webhook.execute()
 
         if stockGSDisk == 'Out Of Stock':
             print('1. GamestopIE Disk Out Of Stock\n')
@@ -105,7 +111,7 @@ def PS5DiskGSLoop():
         else:
             winnerGSDisk = 1
             webhookresponsegamestopDisk()
-            time.sleep(30)
+            time.sleep(120)
             winnerGSDisk = 0
 
         if winnerGSDisk == 1:
@@ -120,13 +126,19 @@ def PS5DiskSmythsLoop():
         url = 'https://www.smythstoys.com/ie/en-ie/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-console/p/191259'
         content = requests.get(url,headers=headers)
         if not content is None:
-            soup = bs.BeautifulSoup(content.text, 'lxml')
-            stockSmythsDisk = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
-            
+            try:
+                soup = bs.BeautifulSoup(content.text, 'lxml')
+                stockSmythsDisk = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
+            except:
+                webhook = DiscordWebhook(url=webhookurl, username="Smyths IE", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
+                embed = DiscordEmbed(title='PS5 Disk In Stock', url='https://www.smythstoys.com/ie/en-ie/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-console/p/191259',description='Error Recieved, possible stock', color=15105570)
+                webhook.add_embed(embed)
+                response = webhook.execute()
+
         if stockSmythsDisk[53:66] == 'js-enable-btn':
             winnerSmythsDisk = 1
             webhookresponsesmythsDisk()
-            time.sleep(30)
+            time.sleep(120)
             winnerSmythsDisk = 0
 
         else:
@@ -144,8 +156,14 @@ def PS5DigGSLoop():
         url = 'https://www.gamestop.ie/PlayStation%205/Games/74863/playstation-5-digital-edition-console'
         content = requests.get(url, headers=headers)
         if not content is None:
-            soup = bs.BeautifulSoup(content.text, 'lxml')
-            stockGSDig = soup.find("div", {"class": "bigBuyButtons SPNOpenMap"}).find('a').text
+            try:
+                soup = bs.BeautifulSoup(content.text, 'lxml')
+                stockGSDig = soup.find("div", {"class": "bigBuyButtons SPNOpenMap"}).find('a').text
+            except:
+                webhook = DiscordWebhook(url=webhookurl, username="Gamestop IE", avatar_url='https://jobapplications.net/wp-content/uploads/gamestop-logo-icon.png')
+                embed = DiscordEmbed(title='PS5 Digital In Stock', url='https://www.gamestop.ie/PlayStation%205/Games/74863/playstation-5-digital-edition-console',description='Error Recieved, possible stock', color=7419530)
+                webhook.add_embed(embed)
+                response = webhook.execute()
 
         if stockGSDig == 'Out Of Stock':
             print('3. GamestopIE Digital Out Of Stock\n')
@@ -153,7 +171,7 @@ def PS5DigGSLoop():
         else:
             winnerGSDig = 1
             webhookresponsegamestopDigital()
-            time.sleep(30)
+            time.sleep(120)
             winnerGSDig = 0
 
         if winnerGSDig == 1:
@@ -168,13 +186,19 @@ def PS5DigSmythsLoop():
         url = 'https://www.smythstoys.com/ie/en-ie/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-digital-edition-console/p/191430'
         content = requests.get(url, headers=headers)
         if not content is None:
-            soup = bs.BeautifulSoup(content.text, 'lxml')
-            stockSmythsDig = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
+            try:
+                soup = bs.BeautifulSoup(content.text, 'lxml')
+                stockSmythsDig = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
+            except:
+                webhook = DiscordWebhook(url=webhookurl, username="Smyths IE", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
+                embed = DiscordEmbed(title='PS5 Digital In Stock', url='https://www.smythstoys.com/ie/en-ie/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-digital-edition-console/p/191430',description='Error Recieved, possible stock', color=15105570)
+                webhook.add_embed(embed)
+                response = webhook.execute()
 
         if stockSmythsDig[53:66] == 'js-enable-btn':
             winnerSmythsDig = 1
             webhookresponsesmythsDigitalUK()
-            time.sleep(30)
+            time.sleep(120)
             winnerSmythsDig = 0
 
         else:
@@ -192,13 +216,19 @@ def PS5DigSmythsLoopUK():
         url = 'https://www.smythstoys.com/uk/en-gb/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-digital-edition-console/p/191430'
         content = requests.get(url, headers=headers)
         if not content is None:
-            soup = bs.BeautifulSoup(content.text, 'lxml')
-            stockSmythsDig = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
+            try:
+                soup = bs.BeautifulSoup(content.text, 'lxml')
+                stockSmythsDig = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
+            except:
+                webhook = DiscordWebhook(url=webhookurl, username="Smyths UK", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
+                embed = DiscordEmbed(title='PS5 Digital In Stock', url='https://www.smythstoys.com/uk/en-gb/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-digital-edition-console/p/191430', description='Error Recieved, possible stock', color=15105570)
+                webhook.add_embed(embed)
+                response = webhook.execute()
 
         if stockSmythsDig[53:66] == 'js-enable-btn':
             winnerSmythsDig = 1
             webhookresponsesmythsDigitalUK()
-            time.sleep(30)
+            time.sleep(120)
             winnerSmythsDig = 0
 
         else:
@@ -216,13 +246,19 @@ def PS5DiskSmythsLoopUK():
         url = 'https://www.smythstoys.com/uk/en-gb/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-console/p/191259'
         content = requests.get(url,headers=headers)
         if not content is None:
-            soup = bs.BeautifulSoup(content.text, 'lxml')
-            stockSmythsDisk = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
+            try:
+                soup = bs.BeautifulSoup(content.text, 'lxml')
+                stockSmythsDisk = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
+            except:
+                webhook = DiscordWebhook(url=webhookurl, username="Smyths UK", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
+                embed = DiscordEmbed(title='PS5 Digital In Stock', url='https://www.smythstoys.com/uk/en-gb/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-digital-edition-console/p/191430',description='Error Recieved, possible stock', color=15105570)
+                webhook.add_embed(embed)
+                response = webhook.execute()
             
         if stockSmythsDisk[53:66] == 'js-enable-btn':
             winnerSmythsDisk = 1
-            webhookresponsesmythsDisk()
-            time.sleep(30)
+            webhookresponsesmythsDiskUK()
+            time.sleep(120)
             winnerSmythsDisk = 0
 
         else:
