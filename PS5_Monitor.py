@@ -8,7 +8,7 @@ from threading import Thread
 TOKEN = "NzExMjU2NjU4NTkyMTM3MjM3.XsAXYQ.RsuGF9pIAtU3dguVz7-EclQRy34"
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 client = discord.Client()
-webhookurl = 'https://discord.com/api/webhooks/725833804899418143/ahah5olFVarkj3b0hPQK8MTf95qKc5p6EWXdQDelhYJ-oJuZFK584MITLM15TYbkxH-T'
+webhookurl = 'https://discord.com/api/webhooks/711694034384584764/_EZXqL4YXD1Z9Wu-FqEttlrzGlBvWM9z1oAAPfsTnsDCQL2ziq_bMh5-Hk6vlpiJUDPp'
 imgURLDisk = 'https://static-ie.gamestop.ie/images/products/271916/3max.jpg'
 imgURLDig = 'https://static-ie.gamestop.ie/images/products/275145/3max.jpg'
 delay = 6
