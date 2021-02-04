@@ -273,7 +273,7 @@ async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Capitalism Is King'))
     thread1 = Thread(target=PS5DiskGSLoop)
     thread2 = Thread(target=PS5DiskSmythsLoop)
-    thread3 = Thread(target=PS5DigGSLoop)
+    #thread3 = Thread(target=PS5DigGSLoop)
     thread4 = Thread(target=PS5DigSmythsLoop)
     thread5 = Thread(target=PS5DigSmythsLoopUK)
     thread6 = Thread(target=PS5DiskSmythsLoopUK)
