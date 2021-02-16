@@ -13,7 +13,7 @@ imgURLDisk = 'https://static-ie.gamestop.ie/images/products/271916/3max.jpg'
 imgURLDig = 'https://static-ie.gamestop.ie/images/products/275145/3max.jpg'
 delay = 6
 
-#Webhook Structure for Smyths IE
+#Webhook Structure for Smyths IE - PS5
 def webhookresponsesmythsDisk():
              webhook = DiscordWebhook(url=webhookurl, username="Smyths IE", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
              embed = DiscordEmbed(title='PS5 Disk In Stock', url='https://www.smythstoys.com/ie/en-ie/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-console/p/191259', color=15105570)
@@ -25,19 +25,19 @@ def webhookresponsesmythsDisk():
              webhook.add_embed(embed)
              response = webhook.execute()
 
-#Webhook Structure for GameStop IE
-def webhookresponsegamestopDisk():
-             webhook = DiscordWebhook(url=webhookurl, username="Gamestop IE", avatar_url='https://jobapplications.net/wp-content/uploads/gamestop-logo-icon.png')
-             embed = DiscordEmbed(title='PS5 Disk In Stock', url='https://www.gamestop.ie/PlayStation%205/Games/72504/playstation-5-console', color=7419530)
+#Webhook Structure for Smyths IE - Pokemon Shining
+def webhookresponsepokemonIE():
+             webhook = DiscordWebhook(url=webhookurl, username="Smyths IE", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
+             embed = DiscordEmbed(title='Pokemon Shining In Stock', url='https://www.smythstoys.com/ie/en-ie/toys/action-figures-and-playsets/pokemon/pokemon-trading-cards-game/pok%c3%a9mon-trading-card-game-shining-fates-elite-trainer-box/p/196815', color=7419530)
              embed.add_embed_field(name='Type', value='Restock', inline=True)
-             embed.add_embed_field(name='Site', value='Gamestop IE', inline=True)
+             embed.add_embed_field(name='Site', value='Smyths IE', inline=True)
              embed.set_footer(text='Watson',icon_url='https://cdn.discordapp.com/app-icons/711256658592137237/74a1779046799c1665d03cda5bb9694f.png')
-             embed.set_thumbnail(url=imgURLDisk)
+             embed.set_thumbnail(url='https://image.smythstoys.com/original/desktop/196815.jpg')
              embed.set_timestamp()
              webhook.add_embed(embed)
              response = webhook.execute()
 
-#Webhook Structure for Smyths IE
+#Webhook Structure for Smyths IE - PS5
 def webhookresponsesmythsDigital():
              webhook = DiscordWebhook(url=webhookurl, username="Smyths IE", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
              embed = DiscordEmbed(title='PS5 Digital In Stock', url='https://www.smythstoys.com/ie/en-ie/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-digital-edition-console/p/191430', color=15105570)
@@ -49,14 +49,14 @@ def webhookresponsesmythsDigital():
              webhook.add_embed(embed)
              response = webhook.execute()
 
-#Webhook Structure for GameStop IE
-def webhookresponsegamestopDigital():
-             webhook = DiscordWebhook(url=webhookurl, username="Gamestop IE", avatar_url='https://jobapplications.net/wp-content/uploads/gamestop-logo-icon.png')
-             embed = DiscordEmbed(title='PS5 Digital In Stock', url='https://www.gamestop.ie/PlayStation%205/Games/74863/playstation-5-digital-edition-console', color=7419530)
+#Webhook Structure for Smyths UK - Pokemon Shining
+def webhookresponsepokemonUK():
+             webhook = DiscordWebhook(url=webhookurl, username="Smyths UK", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
+             embed = DiscordEmbed(title='Pokemon Shining In Stock', url='https://www.smythstoys.com/uk/en-gb/toys/action-figures-and-playsets/pokemon/pokemon-trading-cards-game/pok%c3%a9mon-trading-card-game-shining-fates-elite-trainer-box/p/196815', color=7419530)
              embed.add_embed_field(name='Type', value='Restock', inline=True)
-             embed.add_embed_field(name='Site', value='Gamestop IE', inline=True)
+             embed.add_embed_field(name='Site', value='Smyths UK', inline=True)
              embed.set_footer(text='Watson',icon_url='https://cdn.discordapp.com/app-icons/711256658592137237/74a1779046799c1665d03cda5bb9694f.png')
-             embed.set_thumbnail(url=imgURLDig)
+             embed.set_thumbnail(url='https://image.smythstoys.com/original/desktop/196815.jpg')
              embed.set_timestamp()
              webhook.add_embed(embed)
              response = webhook.execute()
@@ -87,34 +87,33 @@ def webhookresponsesmythsDiskUK():
 ##########################################################################
 
 #PS5DiskGS
-def PS5DiskGSLoop():
-
+def PokemonIELoop():
     while 1:
-        winnerGSDisk = 0
-        title = 'PS5 Disk In Stock'
-        #GameStop
-        url = 'https://www.gamestop.ie/PlayStation%205/Games/72504/playstation-5-console'
+        winnerSmythsDisk = 0 
+
+        #Smyths
+        url = 'https://www.smythstoys.com/ie/en-ie/toys/action-figures-and-playsets/pokemon/pokemon-trading-cards-game/pok%c3%a9mon-trading-card-game-shining-fates-elite-trainer-box/p/196815'
         content = requests.get(url,headers=headers)
         if not content is None:
             try:
                 soup = bs.BeautifulSoup(content.text, 'lxml')
-                stockGSDisk = soup.find("div", {"class": "bigBuyButtons SPNOpenMap"}).find('a').text
+                stockSmythsDisk = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
             except:
-                webhook = DiscordWebhook(url=webhookurl, username="Gamestop IE", avatar_url='https://jobapplications.net/wp-content/uploads/gamestop-logo-icon.png')
-                embed = DiscordEmbed(title='PS5 Disk In Stock', url='https://www.gamestop.ie/PlayStation%205/Games/72504/playstation-5-console',description='Error Recieved, possible stock', color=7419530)
+                webhook = DiscordWebhook(url=webhookurl, username="Smyths IE", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
+                embed = DiscordEmbed(title='Shining Trading Cards', url='https://www.smythstoys.com/ie/en-ie/toys/action-figures-and-playsets/pokemon/pokemon-trading-cards-game/pok%c3%a9mon-trading-card-game-shining-fates-elite-trainer-box/p/196815',description='Error Recieved, possible stock', color=15105570)
                 webhook.add_embed(embed)
                 response = webhook.execute()
 
-        if stockGSDisk == 'Out Of Stock':
-            print('1. GamestopIE Disk Out Of Stock\n')
+        if stockSmythsDisk[53:66] == 'js-enable-btn':
+            winnerSmythsDisk = 1
+            webhookresponsepokemonIE()
+            time.sleep(120)
+            winnerSmythsDisk = 0
 
         else:
-            winnerGSDisk = 1
-            webhookresponsegamestopDisk()
-            time.sleep(120)
-            winnerGSDisk = 0
-
-        if winnerGSDisk == 1:
+            print('2. SmythsIE Pokemon Out of Stock\n')
+        
+        if winnerSmythsDisk == 1:
             break
         time.sleep(delay)
 
@@ -148,33 +147,33 @@ def PS5DiskSmythsLoop():
             break
         time.sleep(delay)
 
-def PS5DigGSLoop():
+def PokemonUKLoop():
     while 1:
-        winnerGSDig = 0    
+        winnerSmythsDisk = 0 
 
-        #GameStop
-        url = 'https://www.gamestop.ie/PlayStation%205/Games/74863/playstation-5-digital-edition-console'
-        content = requests.get(url, headers=headers)
+        #Smyths
+        url = 'https://www.smythstoys.com/uk/en-gb/toys/action-figures-and-playsets/pokemon/pokemon-trading-cards-game/pok%c3%a9mon-trading-card-game-shining-fates-elite-trainer-box/p/196815'
+        content = requests.get(url,headers=headers)
         if not content is None:
             try:
                 soup = bs.BeautifulSoup(content.text, 'lxml')
-                stockGSDig = soup.find("div", {"class": "bigBuyButtons SPNOpenMap"}).find('a').text
+                stockSmythsDisk = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
             except:
-                webhook = DiscordWebhook(url=webhookurl, username="Gamestop IE", avatar_url='https://jobapplications.net/wp-content/uploads/gamestop-logo-icon.png')
-                embed = DiscordEmbed(title='PS5 Digital In Stock', url='https://www.gamestop.ie/PlayStation%205/Games/74863/playstation-5-digital-edition-console',description='Error Recieved, possible stock', color=7419530)
+                webhook = DiscordWebhook(url=webhookurl, username="Smyths UK", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
+                embed = DiscordEmbed(title='Shining Trading Cards In Stock', url='https://www.smythstoys.com/uk/en-gb/toys/action-figures-and-playsets/pokemon/pokemon-trading-cards-game/pok%c3%a9mon-trading-card-game-shining-fates-elite-trainer-box/p/196815',description='Error Recieved, possible stock', color=15105570)
                 webhook.add_embed(embed)
                 response = webhook.execute()
 
-        if stockGSDig == 'Out Of Stock':
-            print('3. GamestopIE Digital Out Of Stock\n')
+        if stockSmythsDisk[53:66] == 'js-enable-btn':
+            winnerSmythsDisk = 1
+            webhookresponsepokemonUK()
+            time.sleep(120)
+            winnerSmythsDisk = 0
 
         else:
-            winnerGSDig = 1
-            webhookresponsegamestopDigital()
-            time.sleep(120)
-            winnerGSDig = 0
-
-        if winnerGSDig == 1:
+            print('2. SmythsIE Disk Out of Stock\n')
+        
+        if winnerSmythsDisk == 1:
             break
         time.sleep(delay)
 
@@ -271,9 +270,9 @@ def PS5DiskSmythsLoopUK():
 @client.event
 async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Capitalism Is King'))
-    thread1 = Thread(target=PS5DiskGSLoop)
+    thread1 = Thread(target=PokemonIELoop)
     thread2 = Thread(target=PS5DiskSmythsLoop)
-    thread3 = Thread(target=PS5DigGSLoop)
+    thread3 = Thread(target=PokemonUKLoop)
     thread4 = Thread(target=PS5DigSmythsLoop)
     thread5 = Thread(target=PS5DigSmythsLoopUK)
     thread6 = Thread(target=PS5DiskSmythsLoopUK)
