@@ -111,7 +111,7 @@ def PokemonIELoop():
             winnerSmythsDisk = 0
 
         else:
-            print('2. SmythsIE Pokemon Out of Stock\n')
+            print('1. SmythsIE Pokemon Out of Stock\n')
         
         if winnerSmythsDisk == 1:
             break
@@ -171,7 +171,7 @@ def PokemonUKLoop():
             winnerSmythsDisk = 0
 
         else:
-            print('2. SmythsIE Disk Out of Stock\n')
+            print('3. SmythsUK Pokemon Out of Stock\n')
         
         if winnerSmythsDisk == 1:
             break
