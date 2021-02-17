@@ -102,7 +102,7 @@ def PokemonIELoop():
                 webhook = DiscordWebhook(url=webhookurl, username="Smyths IE", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
                 embed = DiscordEmbed(title='Shining Trading Cards', url='https://www.smythstoys.com/ie/en-ie/toys/action-figures-and-playsets/pokemon/pokemon-trading-cards-game/pok%c3%a9mon-trading-card-game-shining-fates-elite-trainer-box/p/196815',description='Error Recieved, possible stock', color=15105570)
                 webhook.add_embed(embed)
-                response = webhook.execute()
+                #response = webhook.execute()
 
         if stockSmythsDisk[53:66] == 'js-enable-btn':
             winnerSmythsDisk = 1
@@ -132,7 +132,7 @@ def PS5DiskSmythsLoop():
                 webhook = DiscordWebhook(url=webhookurl, username="Smyths IE", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
                 embed = DiscordEmbed(title='PS5 Disk In Stock', url='https://www.smythstoys.com/ie/en-ie/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-console/p/191259',description='Error Recieved, possible stock', color=15105570)
                 webhook.add_embed(embed)
-                response = webhook.execute()
+                #response = webhook.execute()
 
         if stockSmythsDisk[53:66] == 'js-enable-btn':
             winnerSmythsDisk = 1
@@ -162,7 +162,7 @@ def PokemonUKLoop():
                 webhook = DiscordWebhook(url=webhookurl, username="Smyths UK", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
                 embed = DiscordEmbed(title='Shining Trading Cards In Stock', url='https://www.smythstoys.com/uk/en-gb/toys/action-figures-and-playsets/pokemon/pokemon-trading-cards-game/pok%c3%a9mon-trading-card-game-shining-fates-elite-trainer-box/p/196815',description='Error Recieved, possible stock', color=15105570)
                 webhook.add_embed(embed)
-                response = webhook.execute()
+                #response = webhook.execute()
 
         if stockSmythsDisk[53:66] == 'js-enable-btn':
             winnerSmythsDisk = 1
@@ -192,7 +192,7 @@ def PS5DigSmythsLoop():
                 webhook = DiscordWebhook(url=webhookurl, username="Smyths IE", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
                 embed = DiscordEmbed(title='PS5 Digital In Stock', url='https://www.smythstoys.com/ie/en-ie/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-digital-edition-console/p/191430',description='Error Recieved, possible stock', color=15105570)
                 webhook.add_embed(embed)
-                response = webhook.execute()
+                #response = webhook.execute()
 
         if stockSmythsDig[53:66] == 'js-enable-btn':
             winnerSmythsDig = 1
@@ -222,7 +222,7 @@ def PS5DigSmythsLoopUK():
                 webhook = DiscordWebhook(url=webhookurl, username="Smyths UK", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
                 embed = DiscordEmbed(title='PS5 Digital In Stock', url='https://www.smythstoys.com/uk/en-gb/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-digital-edition-console/p/191430', description='Error Recieved, possible stock', color=15105570)
                 webhook.add_embed(embed)
-                response = webhook.execute()
+                #response = webhook.execute()
 
         if stockSmythsDig[53:66] == 'js-enable-btn':
             winnerSmythsDig = 1
@@ -252,7 +252,7 @@ def PS5DiskSmythsLoopUK():
                 webhook = DiscordWebhook(url=webhookurl, username="Smyths UK", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
                 embed = DiscordEmbed(title='PS5 Digital In Stock', url='https://www.smythstoys.com/uk/en-gb/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-digital-edition-console/p/191430',description='Error Recieved, possible stock', color=15105570)
                 webhook.add_embed(embed)
-                response = webhook.execute()
+                #response = webhook.execute()
             
         if stockSmythsDisk[53:66] == 'js-enable-btn':
             winnerSmythsDisk = 1
