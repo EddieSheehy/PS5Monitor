@@ -217,12 +217,12 @@ def PS5DigSmythsLoopUK():
         if not content is None:
             try:
                 soup = bs.BeautifulSoup(content.text, 'lxml')
-                stockSmythsDig = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
+                stockSmythsDig = soup.find("form", {"id": "customAddToCartForm"}).find('button')
             except:
                 PS5DigSmythsLoopUK()
                 #response = webhook.execute()
 
-        if stockSmythsDig[53:66] == 'js-enable-btn':
+        if 'js-enable-btn' in stockSmythsDig:
             winnerSmythsDig = 1
             webhookresponsesmythsDigitalUK()
             time.sleep(120)
