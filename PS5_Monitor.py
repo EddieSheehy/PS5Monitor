@@ -218,6 +218,9 @@ def PS5DigSmythsLoopUK():
             try:
                 soup = bs.BeautifulSoup(content.text, 'lxml')
                 stockSmythsDig = soup.find("form", {"id": "customAddToCartForm"}).find('button')
+                print(stockSmythsDig)
+                stockSmythsDig2 = soup.find("form", {"id": "customAddToCartForm"})
+                print(stockSmythsDig2)
             except:
                 PS5DigSmythsLoopUK()
                 #response = webhook.execute()
