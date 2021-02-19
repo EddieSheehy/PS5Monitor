@@ -219,10 +219,7 @@ def PS5DigSmythsLoopUK():
                 soup = bs.BeautifulSoup(content.text, 'lxml')
                 stockSmythsDig = str(soup.find("form", {"id": "customAddToCartForm"}).find('button'))
             except:
-                webhook = DiscordWebhook(url=webhookurl, username="Smyths UK", avatar_url='https://pbs.twimg.com/profile_images/1201814930581868544/f0N7G3DI_400x400.png')
-                embed = DiscordEmbed(title='PS5 Digital In Stock', url='https://www.smythstoys.com/uk/en-gb/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-digital-edition-console/p/191430', description='Error Recieved, possible stock', color=15105570)
-                webhook.add_embed(embed)
-                break
+                PS5DigSmythsLoopUK()
                 #response = webhook.execute()
 
         if stockSmythsDig[53:66] == 'js-enable-btn':
