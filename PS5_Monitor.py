@@ -214,15 +214,20 @@ def PS5DigSmythsLoopUK():
         #Smyths
         url = 'https://www.smythstoys.com/uk/en-gb/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-digital-edition-console/p/191430'
         content = requests.get(url, headers=headers)
-        if not content is None:
-            try:
-                soup = bs.BeautifulSoup(content.text, 'lxml')
-                stockSmythsDig = soup.find("form", {"id": "customAddToCartForm"}).find('button')
-                print(stockSmythsDig)
-                stockSmythsDig2 = soup.find("form", {"id": "customAddToCartForm"})
-                print(stockSmythsDig2)
-            except:
-                PS5DigSmythsLoopUK()
+        soup = bs.BeautifulSoup(content.text, 'lxml')
+        stockSmythsDig = soup.find("form", {"id": "customAddToCartForm"}).find('button')
+        print(stockSmythsDig)
+        stockSmythsDig2 = soup.find("form", {"id": "customAddToCartForm"})
+        print(stockSmythsDig2)
+        #if not content is None:
+            #try:
+             #   soup = bs.BeautifulSoup(content.text, 'lxml')
+              #  stockSmythsDig = soup.find("form", {"id": "customAddToCartForm"}).find('button')
+               # print(stockSmythsDig)
+               # stockSmythsDig2 = soup.find("form", {"id": "customAddToCartForm"})
+              #  print(stockSmythsDig2)
+          #  except:
+               # PS5DigSmythsLoopUK()
                 #response = webhook.execute()
 
         if 'js-enable-btn' in stockSmythsDig:
