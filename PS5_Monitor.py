@@ -194,7 +194,7 @@ def PS5DigSmythsLoop():
                 webhook.add_embed(embed)
                 #response = webhook.execute()
 
-        if stockSmythsDig[53:66] == 'js-enable-btn':
+        if 'js-enable-btn' in stockSmythsDig:
             winnerSmythsDig = 1
             webhookresponsesmythsDigitalUK()
             time.sleep(120)
