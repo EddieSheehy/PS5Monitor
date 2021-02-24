@@ -4,13 +4,15 @@ import time
 import discord
 from discord_webhook import *
 from threading import Thread
+from proxycrawl import CrawlingAPI, ScraperAPI, LeadsAPI
 
 TOKEN = "NzExMjU2NjU4NTkyMTM3MjM3.XsAXYQ.RsuGF9pIAtU3dguVz7-EclQRy34"
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
 client = discord.Client()
-webhookurl = 'https://discord.com/api/webhooks/800840213135228948/DpuqgulYFHYHuQhgy7g-NVj78E6H9kE6dgvQHdzHmX5EWzWVh45ck0AJT5RIupjYgeIr'
+webhookurl = 'https://discord.com/api/webhooks/725833804899418143/ahah5olFVarkj3b0hPQK8MTf95qKc5p6EWXdQDelhYJ-oJuZFK584MITLM15TYbkxH-T'
 imgURLDisk = 'https://static-ie.gamestop.ie/images/products/271916/3max.jpg'
 imgURLDig = 'https://static-ie.gamestop.ie/images/products/275145/3max.jpg'
+api = CrawlingAPI({ 'token': '7VZvcH3_-_3fvR7fnXF5sw' })
 delay = 6
 
 #Webhook Structure for Smyths IE
@@ -86,6 +88,29 @@ def webhookresponsesmythsDiskUK():
              response = webhook.execute()
 ##########################################################################
 
+def CapsulatedTest():
+    print('Capsulated Started')
+    while 1:
+        url = URL
+        result = requests.get(url, headers=headers)
+        soup = bs.BeautifulSoup(result.text, 'lxml')
+        try:
+            info = soup.find("iframe")
+            infocheck = info.text
+            if "Incapsula" in infocheck:
+                print('Incapsula Error')
+                s = requests.Session()
+                print('bye')
+                print('[STATUS] - Adding Cookies')
+                CapsulatedTest()
+                print('Passed For Loop')
+                result = requests.get(url, headers=headers, cookies=cookie)
+                soup = bs.BeautifulSoup(result.text, 'lxml')   
+            else:
+                PS5DiskSmythsLoop()
+        except:
+            PS5DiskSmythsLoop()
+
 #PS5DiskGS
 def PS5DiskGSLoop():
 
@@ -123,9 +148,20 @@ def PS5DiskSmythsLoop():
     while 1:
         winnerSmythsDisk = 0 
 
+        
         #Smyths
         url = "https://www.smythstoys.com/ie/en-ie/video-games-and-tablets/playstation-5/playstation-5-consoles/playstation-5-console/p/191259"
         result = requests.get(url, headers=headers)
+
+        try:
+            info = soup.find("iframe")
+            infocheck = info.text
+            print(infocheck)
+            if "Incapsula" in infocheck:
+                CapsulatedTest()
+        except:
+            continue
+
         if not result is None:
             try:
                 soup = bs.BeautifulSoup(result, 'lxml')
