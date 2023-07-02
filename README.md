@@ -12,4 +12,4 @@ python3 PS5_Monitor.py
 ```
 
 ## Example of Discord Webhook
-![Here](images/)
+![Here](images/Screenshot%202023-07-02%20at%2018.18.02.png)
